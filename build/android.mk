@@ -27,7 +27,7 @@ DX = $(ANDROID_BUILD_TOOLS_DIR)/dx
 
 ANDROID_LIB_NAMES = xcsoar
 
-JARSIGNER_RELEASE := $(JARSIGNER) -digestalg SHA1 -sigalg MD5withRSA
+JARSIGNER_RELEASE := $(JARSIGNER) -digestalg SHA1 -sigalg SHA1withRSA 
 
 # The environment variable ANDROID_KEYSTORE_PASS may be used to
 # specify the keystore password; if you don't set it, you will be
@@ -286,7 +286,7 @@ $(HOME)/.android/debug.keystore:
 
 $(ANDROID_BIN)/XCSoar-debug.apk: $(ANDROID_BUILD)/unsigned.apk $(HOME)/.android/debug.keystore | $(ANDROID_BIN)/dirstamp
 	@$(NQ)echo "  SIGN    $@"
-	$(Q)$(JARSIGNER) -keystore $(HOME)/.android/debug.keystore -storepass android -digestalg SHA1 -sigalg MD5withRSA -signedjar $@ $< androiddebugkey
+	$(Q)$(JARSIGNER) -keystore $(HOME)/.android/debug.keystore -storepass android -digestalg SHA1 -sigalg SHA1withRSA -signedjar $@ $< androiddebugkey
 
 $(ANDROID_BUILD)/XCSoar-release-unaligned.apk: $(ANDROID_BUILD)/unsigned.apk
 	@$(NQ)echo "  SIGN    $@"
