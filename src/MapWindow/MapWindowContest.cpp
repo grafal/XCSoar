@@ -60,7 +60,7 @@ DrawXContest(Canvas &canvas, const WindowProjection &projection,
                 (p2.longitude.Degrees() - p1.longitude.Degrees())) >= 0;
 
     canvas.Select(Brush(COLOR_GREEN.WithAlpha(60)));
-    canvas.Select(Pen(1, COLOR_BLACK));
+    canvas.Select(Pen(3, COLOR_BLACK));
 
 #ifdef ENABLE_OPENGL
     const GLBlend blend(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -79,7 +79,7 @@ DrawXContest(Canvas &canvas, const WindowProjection &projection,
 
     // triangle
     canvas.Select(Brush());
-    canvas.Select(Pen(1, COLOR_YELLOW));
+    canvas.Select(Pen(5, COLOR_ORANGE));
     RenderFAILeg(canvas, projection, p1, p2);
     RenderFAILeg(canvas, projection, p2, p3);
     RenderFAILeg(canvas, projection, p3, p1);
